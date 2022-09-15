@@ -1,6 +1,6 @@
 We provide 6 main folders for the code.
 
-- cifars_tiny: includes pretraining and linear evaluation for CIFARs and Tiny Imagenet dataset. 
+- cifars-tiny: includes pretraining and linear evaluation for CIFARs and Tiny Imagenet dataset. 
 - imagenet100_resnet18: includes pretraining and linear evaluation for ImageNet-100 dataset with ResNet18. 
 - imagenet100_resnet50: includes pretraining and linear evaluation for ImageNet-100 dataset with ResNet50. 
 - imagenet1k: includes pretraining and linear evaluation for ImageNet1K dataset. 
