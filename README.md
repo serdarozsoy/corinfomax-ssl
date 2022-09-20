@@ -58,37 +58,39 @@ Other parameters details are included in parsing_file.py.
 ### CIFAR-10
 
 - #### pretraining then linear evaluation
-
+```
 python main_traintest.py --epochs 1000 --batch_size 512 --lin_epochs 100 --lin_batch_size 256 --R_ini 1.0  --learning_rate 0.5 --cov_loss_weight 1.0 --sim_loss_weight 250.0 --la_R 0.01 --la_mu 0.01 --projector 2048-2048-64 --R_eps_weight 1e-8 --w_decay 1e-4 --pre_optimizer SGD --pre_scheduler lin_warmup_cos --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler cos  --n_workers 4  --dataset cifar10 --lin_dataset cifar10 --con_name cov_cifar10_best_rerun --model_name resnet18 --normalize_on --min_lr 1e-6  --lin_min_lr 0.002
-
+```
 
 - #### linear evaluation
-
+```
 python main_linear.py --lin_epochs 100 --lin_batch_size 256 --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler cos --dataset cifar10 --lin_dataset cifar10 --con_name 1 --model_name resnet18 --lin_model_path results/t_1653402026_cov_cifar10_best_rerun_model1000.pth --n_workers 4 --gpu_no 0 --lin_min_lr 2e-3
-
+```
 
 ### CIFAR-100
 
 - #### Pretraining then linear evaluation
-
+```
 python main_traintest.py --epochs 1000 --batch_size 512 --lin_epochs 100 --lin_batch_size 256 --R_ini 1.0  --learning_rate 0.5 --cov_loss_weight 1.0 --sim_loss_weight 1000.0 --la_R 0.01 --la_mu 0.01 --projector 4096-4096-128 --R_eps_weight 1e-8 --w_decay 1e-4 --lin_warmup_epochs 5 --pre_optimizer SGD --pre_scheduler lin_warmup_cos --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler cos  --n_workers 4  --dataset cifar100 --lin_dataset cifar100 --con_name cov_cifar100_best_rerun --model_name resnet18 --normalize_on --min_lr 1e-6 --lin_min_lr 0.002
+```
 
 - #### Linear evaluation
-
+```
 python main_linear.py --lin_epochs 100 --lin_batch_size 256 --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler cos --dataset cifar100 --lin_dataset cifar100 --con_name 1 --model_name resnet18 --lin_model_path results/t_1653488201_cov_cifar100_best_rerun_model1000.pth --n_workers 2 --gpu_no 0 --lin_min_lr 2e-3
-
+```
 
 
 ### Tiny ImageNet
 
 - #### Pretraining then linear evaluation
-
+```
 python ./main_traintest.py --epochs 800 --batch_size 1024 --lin_epochs 100 --lin_batch_size 256 --R_ini 1.0  --learning_rate 0.5 --cov_loss_weight 1.0 --sim_loss_weight 500.0 --la_R 0.1 --la_mu 0.1 --projector 4096-4096-128 --R_eps_weight 1e-8 --w_decay 1e-4 --warmup_epochs 10 --pre_optimizer SGD --pre_scheduler lin_warmup_cos --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler cos  --n_workers 4  --dataset tiny_imagenet --lin_dataset tiny_imagenet --con_name cov_tiny --model_name resnet50 --normalize_on --min_lr 1e-6 --lin_min_lr 0.002
+```
 
 - #### Linear evaluation
-
+```
 python main_linear.py --lin_epochs 100 --lin_batch_size 256 --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler cos --dataset tiny_imagenet --lin_dataset tiny_imagenet --con_name 1 --model_name resnet50 --lin_model_path results/t_1655467683_cov_tiny_lamda_model800.pth --n_workers 4 --lin_min_lr 2e-3 
-
+```
 
 
 ### ImageNet-100 (with ResNet-18)
@@ -101,12 +103,14 @@ Note: Correct path for pretrained model must be added for "--lin_model_path" par
 - #### Pretraining (In pretrain folder)
 
 Note: Linear evaluation during pretraining is only for indicator. For precise result, linear evaluation should be done for 100 epochs after obtaining the final pretraining model.
-
+```
 torchrun --nproc_per_node=8 main_traintest_cov_online_multi3_lin_img100_wmse_resnet18.py --epochs 400  --learning_rate 1.0 --lin_epochs 200 --lin_batch_size 256  --R_ini 1.0  --projector 4096-4096-128 --batch_size 1024 --sim_loss_weight 500.0 --cov_loss_weight 1.0 --la_R 0.01 --la_mu 0.01 --R_eps_weight 1e-08 --w_decay 1e-4 --pre_optimizer SGD --pre_scheduler lin_warmup_cos  --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler lin_warmup_cos  --dataset imagenet-100 --lin_dataset imagenet-100 --con_name cov_imagenet100_ep400_norm_resnet18 --model_name resnet18 --n_workers 12 --normalize_on --min_lr 5e-3 
+```
 
 - #### Linear evaluation (In linear folder)
-
+```
 torchrun --nproc_per_node=8 main_linear_multi_resnet18.py --epochs 100 --lin_epochs 100 --lin_batch_size 256  --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler cos --dataset imagenet-100 --lin_dataset imagenet-100 --con_name 1 --model_name resnet18 --lin_model_path ~/imagenet100_resnet18/pretrain/results/t_1652904346_cov_imagenet100_ep400_norm_resnet18_model400.pth --n_workers 12  --lin_min_lr 2e-3
+```
 
 ### ImageNet-100 (with ResNet-50)
 
@@ -117,13 +121,14 @@ Note: Correct path for pretrained model must be added for "--lin_model_path" par
 - #### Pretraining (In pretrain folder)
 
 Note: Linear evaluation during pretraining is only for indicator. For precise result, linear evaluation should be done for 100 epochs after obtaining the final pretraining model.
-
+```
 torchrun --nproc_per_node=8 main_traintest_cov_online_multi3_lin_img100.py --epochs 200  --learning_rate 1.0 --lin_epochs 200 --lin_batch_size 256  --R_ini 1.0  --projector 4096-4096-128 --batch_size 1024 --sim_loss_weight 500.0 --cov_loss_weight 1.0 --la_R 0.01 --la_mu 0.01 --R_eps_weight 1e-08 --w_decay 1e-4 --pre_optimizer SGD --pre_scheduler lin_warmup_cos  --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler lin_warmup_cos --warmup_epochs 5  --dataset imagenet-100 --lin_dataset imagenet-100 --con_name cov_imagenet100_ep200_norm --model_name resnet50 --n_workers 12 --normalize_on --min_lr 5e-3 
+```
 
 - #### Linear evaluation (In linear folder)
-
+```
 torchrun --nproc_per_node=8 main_linear_multi.py --epochs 100 --lin_epochs 100 --lin_batch_size 256  --lin_optimizer SGD --lin_learning_rate 0.2 --lin_w_decay 0 --lin_scheduler cos --dataset imagenet-100 --lin_dataset imagenet-100 --con_name 1 --model_name resnet50 --lin_model_path ~/imagenet100_resnet50/pretrain/results/t_1652883735_cov_imagenet100_ep200_norm_model200.pth --n_workers 12  --lin_min_lr 2e-3
-
+```
 
 ### ImageNet-1K
 
@@ -132,14 +137,14 @@ Due to larger image sizes, it requires multiple GPUs to make experiments in reas
 Note: Correct path for pretrained model must be added for "--lin_model_path" parameter. 
 
 - #### Pretraining
-
+```
 torchrun     --nproc_per_node=8     main_orig_tinyimg_clone_mgpu_corrected_offline_bn.py     --epochs 100     --lin_epochs 100     --R_ini 1.0     --pre_optimizer SGD     --pre_scheduler lin_warmup_cos     --lin_optimizer SGD     --lin_learning_rate 2.0  --lin_min_lr 1e-1   --lin_w_decay 0     --lin_scheduler cos      --n_workers 12      --dataset imagenet     --lin_dataset imagenet     --con_name imagenet_mgpu_amp_4gpu_a100_bn     --model_name resnet50     --normalize_on     --min_lr 1e-6   --learning_rate 0.2     --cov_loss_weight 1.0     --sim_loss_weight 2000.0     --la_R 0.1     --la_mu 0.1     --projector 8192-8192-512    --R_eps_weight 1e-08     --w_decay 1e-4     --batch_size 1536   --lin_batch_size 256     --amp
-
+```
 
 - #### Linear evaluation
-
+```
 torchrun --nproc_per_node=8 main_linear_multi_offline_t4.py --epochs 100 --lin_epochs 100 --lin_batch_size 256 --lin_optimizer SGD --lin_learning_rate 25.0 --lin_w_decay 0 --lin_scheduler step --lin_step_size 20 --dataset imagenet --lin_dataset imagenet --con_name 1 --model_name resnet50 --lin_model_path ./results/t_1659716263_imagenet_mgpu_amp_4gpu_a100_bn_model100.pth --n_workers 12
-
+```
 
 - #### Semi-supervised learning
 
@@ -147,13 +152,15 @@ Added step scheduler for each header and backbone. Code exists in semi_supervise
 
 Code Source: [VICReg](https://github.com/facebookresearch/vicreg)
 
-- 1% percentage of data 
-
+- 1% of data 
+```
 python evaluate_step.py --data-dir  ~/data --pretrained ./pretrained_corinfomax/resnet50.pth --exp-dir ./experiment_ft1_corinfomax/ --weights finetune --train-perc 1 --epochs 20  --lr-backbone 0.005 --lr-head 10 --weight-decay 0
+```
 
-- 10% percentage of data 
-
+- 10% of data 
+```
 python evaluate_step.py --data-dir  ~/data --pretrained ./pretrained_corinfomax/resnet50.pth --exp-dir ./experiment_ft10_corinfomax/ --weights finetune --train-perc 10 --epochs 20  --lr-backbone 0.005 --lr-head 20 --weight-decay 0
+```
 
 - #### Transfer learning
 
