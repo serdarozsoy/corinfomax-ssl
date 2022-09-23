@@ -1,3 +1,28 @@
+
+# Self-Supervised Learning with an Information Maximization Criterion
+
+
+Serdar Ozsoy, Shadi Hamdan, Sercan Ö. Arik, Deniz Yuret, Alper T. Erdogan
+
+Paper: https://arxiv.org/abs/2209.07999
+
+### News
+- **15 Sep 2022** [Self-Supervised Learning with an Information Maximization Criterion](https://arxiv.org/abs/2209.07999) is accepted by NeurIPS 2022.
+
+Citation:
+    
+```
+@misc{ozsoy2022selfsupervised,
+    title={Self-Supervised Learning with an Information Maximization Criterion},
+    author={Serdar Ozsoy and Shadi Hamdan and Sercan Ö. Arik and Deniz Yuret and Alper T. Erdogan},
+    year={2022},
+    eprint={2209.07999},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+```
+
+
 We provide 6 main folders for the code.
 
 - cifars-tiny: includes pretraining and linear evaluation for CIFARs and Tiny Imagenet dataset. 
@@ -174,7 +199,4 @@ For details please refer README.md in transfer_learning folder.
 - Pretraining is not started: wrong "--gpu_no" parameters (for CIFAR-10, CIFAR-100, Tiny ImageNet experiments)
 - Any unexpected low accuracy results: dataset folder can be in different path. (for Tiny ImageNet and ImageNet-100 experiments)
 - If runtime takes much more than reported: --n_workers may be incompatible with your running system. We choose number of CPU core in our all experiments.
-
-
-    
 
