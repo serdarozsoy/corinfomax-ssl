@@ -7,7 +7,7 @@ Serdar Ozsoy, Shadi Hamdan, Sercan Ö. Arik, Deniz Yuret, Alper T. Erdogan
 Paper: https://arxiv.org/abs/2209.07999
 
 ### News
-- **15 Sep 2022** [Self-Supervised Learning with an Information Maximization Criterion](https://arxiv.org/abs/2209.07999) is accepted by NeurIPS 2022.
+- **15 Sep 2022** [Self-Supervised Learning with an Information Maximization Criterion](https://arxiv.org/abs/2209.07999) is accepted to NeurIPS 2022.
 
 Citation:
     
