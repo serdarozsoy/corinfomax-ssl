@@ -4,7 +4,11 @@
 
 Serdar Ozsoy, Shadi Hamdan, Sercan Ö. Arik, Deniz Yuret, Alper T. Erdogan
 
-Paper: https://arxiv.org/abs/2209.07999
+:pushpin: [NeurIPS 2022 - Poster](https://neurips.cc/media/PosterPDFs/NeurIPS%202022/b837305e43f7e535a1506fc263eee3ed.png?t=1667476452.437047)
+
+:page_facing_up: [NeurIPS 2022 - Paper](https://openreview.net/pdf?id=5MgZAu2NR7X)
+
+:link: [Arxiv link](https://arxiv.org/abs/2209.07999)
 
 ### News
 - **15 Sep 2022** [Self-Supervised Learning with an Information Maximization Criterion](https://arxiv.org/abs/2209.07999) is accepted to NeurIPS 2022.
