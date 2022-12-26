@@ -6,7 +6,9 @@ Serdar Ozsoy, Shadi Hamdan, Sercan Ö. Arik, Deniz Yuret, Alper T. Erdogan
 
 :pushpin: [NeurIPS 2022 - Poster](https://neurips.cc/media/PosterPDFs/NeurIPS%202022/b837305e43f7e535a1506fc263eee3ed.png?t=1667476452.437047)
 
-:page_facing_up: [NeurIPS 2022 - Paper](https://openreview.net/pdf?id=5MgZAu2NR7X)
+:page_facing_up: [NeurIPS 2022 - Main Paper](https://openreview.net/pdf?id=5MgZAu2NR7X)
+
+:page_facing_up: [NeurIPS 2022 - Main Paper with Appendix](https://openreview.net/references/pdf?id=SdEvBj0Fa)
 
 :link: [Arxiv link](https://arxiv.org/abs/2209.07999)
 
